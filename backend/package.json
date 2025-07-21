@@ -1,0 +1,45 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "MERN chat application using socket.io",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirant-nk/mern-chat-app.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Nirant Kale",
+  "type": "module",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nirant-nk/mern-chat-app/issues"
+  },
+  "homepage": "https://github.com/nirant-nk/mern-chat-app#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.7.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.4",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "path": "^0.12.7",
+    "socket.io": "^4.8.1",
+    "url": "^0.11.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
