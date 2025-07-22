@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 import connectDB from "./database/connectDB.js";
 import { protectRoute } from "./middlewares/auth.middleware.js";
 import authRouter from "./routes/auth.route.js";
+import messageRouter from "./routes/message.route.js";
 import userRouter from "./routes/user.route.js";
 
 
@@ -56,6 +57,7 @@ app.use('/api/v1/auth', authRouter);
 
 // secured
 app.use('/api/v1/user',protectRoute,userRouter);
+app.use('/api/v1/chat',protectRoute,messageRouter);
 
 // Start server
 app.listen(PORT, () => {
