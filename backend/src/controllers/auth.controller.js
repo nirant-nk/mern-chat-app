@@ -111,14 +111,26 @@ export const logout = async (_, res) => {
     try {
         // Clear access token cookie
         removeCookies(res);
-
+        console.log("here try");
+        
         return res.status(200).json({
             message: "Logout successful, cookies cleared"
         });
 
     } catch (error) {
+        console.log("here catch");
         return res.status(500).json({
             message: `Error at Logout -> ${error.message}`
         });
     }
 };
+
+export const checkAuth = async(req,res) => {
+    try {
+        res.status(200).json(req.user);
+    } catch (error) {
+         return res.status(500).json({
+            message: `Error at Login -> ${error.message}`
+        });
+    }
+}

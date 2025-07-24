@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import User from "../models/user.model.js";
 
 export const protectRoute = (req, res, next) => {
     const token = req.cookies?.accessToken;
@@ -10,11 +11,10 @@ export const protectRoute = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET);
 
-        // const user = User.findById(decoded.userId).select("-password")
-        // if(!user) return res.status(404)
+        const user = User.findById(decoded._id).select("-password")
+        if(!user) return res.status(404)
 
-        // increases database calls
-        req.user = decoded;  // decoded {_id,email}
+        req.user = user;  // decoded {_id,email}
         next();
     } catch (err) {
         return res.status(403).json({ message: 'Invalid or expired access token.' });
